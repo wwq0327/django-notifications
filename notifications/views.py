@@ -42,7 +42,7 @@ def unread(request):
     
 @login_required
 def mark_all_as_read(request):
-    request.user.notifications.mark_all_as_read()
+    request.user.notifications.mark_all_as_read(recipient=request.user)
     return redirect('notifications:all')
 
 @login_required

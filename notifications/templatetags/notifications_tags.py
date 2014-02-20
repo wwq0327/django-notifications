@@ -13,4 +13,4 @@ def notifications_unread(context):
     user = context['user']
     if user.is_anonymous():
         return ''
-    return user.notifications.unread().count()
+    return user.notifications.filter(unread=True).count()
